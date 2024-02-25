@@ -1,0 +1,16 @@
+validate:
+  image: gramener/builderrors
+  script: builderrors
+
+deploy:
+  stage: deploy
+  script: deploy
+  variables:
+    SERVER: gramener.com
+    URL: llmexcel
+    VERSION: static
+    SETUP: npm install
+    CORS: enabled
+  environment:
+    name: production
+    url: https://gramener.com/llmexcel/

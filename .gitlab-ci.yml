@@ -9,7 +9,6 @@ deploy:
     SERVER: gramener.com
     URL: llmexcel
     VERSION: static
-    SETUP: npm install
     CORS: enabled
   environment:
     name: production

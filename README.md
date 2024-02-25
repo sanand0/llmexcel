@@ -84,12 +84,12 @@ In any cell, type `=LLM("Translate OK to French")` and press Enter. It will retu
 
 - **Prompt**: The question or text to generate a response for
 - **Model** (default: `gpt-3.5-turbo`). For GPT-4, use `=LLM(A1, "gpt-4-turbo-preview")`. You can use any [models](https://platform.openai.com/docs/models/) newer than `gpt-3.5-turbo-1106`
-    - `gpt-4-turbo-preview`
-    - `gpt-4-0125-preview`
-    - `gpt-4-1106-preview`
-    - `gpt-3.5-turbo`
-    - `gpt-3.5-turbo-0125`
-    - `gpt-3.5-turbo-1106`
+  - `gpt-4-turbo-preview`
+  - `gpt-4-0125-preview`
+  - `gpt-4-1106-preview`
+  - `gpt-3.5-turbo`
+  - `gpt-3.5-turbo-0125`
+  - `gpt-3.5-turbo-1106`
 - **Refresh** (default: `FALSE`): By default, responses are cached. Use `=LLM(A1,,TRUE)` for a new response.
 - **Temperature** (default: `1`): For precise responses, reduce temperature, e.g. `=LLM(A1,,,0.2)`. Can be between 0 and 2.
 

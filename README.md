@@ -54,7 +54,19 @@ Click OK to close the Environment Variables dialog. Then click OK to close the S
 
 ## Open llmexcel.xlsm
 
-[Download llmexcel.xlsm](llmexcel.xlsm ":ignore") and open it.
+[Download llmexcel.xlsm](llmexcel.xlsm ":ignore").
+
+If you open the file, you'll see this "Security Risk" error.
+
+![Security Risk](docs/download-security-risk.png)
+
+Right-click on the file and select "Properties". Then click on "Unblock" and "Apply".
+
+![Unblock](docs/download-unblock.png)
+
+When you open the file, you may see a "Protected View" message. Click on "Enable editing".
+
+![Enable editing](docs/download-enable-editing.png)
 
 If you see a security warning, click on "Enable Content".
 
@@ -99,3 +111,5 @@ When the `LLM()` function is called, it:
 
 - If you get a "Macros have been disabled" security message, click "Enable Content".
 - Tools - References - Enable "Microsoft Scripting Runtime"
+
+**Raise your issue** at <https://code.gramener.com/cto/llmexcel/-/issues>.

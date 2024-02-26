@@ -31,15 +31,9 @@ If not, sign up at <https://platform.openai.com/account/api-keys>. Click on "Cre
 
 ## Set up environment variable
 
-Press <kbd>🪟 + R</kbd> or go to Start - Run. Then type `systempropertiesadvanced.exe` and press OK. This opens the System Properties - Advanced settings.
+In the start menu, search for "Environment Variables" and click on "Edit environment variables for your account".
 
-![Advanced System Settings](docs/env-1-advanced-system-settings.png)
-
-Click on "Environment Variables". This opens the Environment Variables dialog.
-
-![System Properties](docs/env-2-system-properties.png)
-
-Click on the "New" button to add a new environment variable.
+Click on the "New" button to add a new environment variable for your account.
 
 ![Environment Variables](docs/env-3-environment-variables.png)
 

@@ -30,7 +30,6 @@ Function LLM(prompt As String, Optional ByVal model As String = "gpt-3.5-turbo-1
     ' Do not set timeouts. XMLHTTP doesn't support it. ServerXMLHTTP doesn't work
     ' http.setTimeouts 5000, 5000, 5000, 30000
     http.Open "POST", "https://gramener.com/llmproxy/v1/chat/completions", False
-    ' Short timeouts (5s) for resolve, connect, send. Wait 30s for response
     http.setRequestHeader "Content-Type", "application/json"
     http.setRequestHeader "Authorization", "Bearer " & apiKey
     If Not refresh Then

@@ -9,7 +9,7 @@ This can be used for:
 - **Audit**. E.g. `=LLM("Is this a polite response? Say YES/NO with reason: " & A1)`
 - **Classification**. E.g. `=LLM("Is this a positive or negative review: " & A1)`
 - **Extraction**. E.g. `=LLM("Return the name, date and amount from this complaint: " & A1)`
-- **Reformatting**. E.g. `=LLM("Conver this citation to the APA format: " & A1)`
+- **Reformatting**. E.g. `=LLM("Convert this citation to the APA format: " & A1)`
 - **Summarization**. E.g. `=LLM("Summarize this article: " & A1)`
 - **Translation**. E.g. `=LLM("Translate to French: " & A1)`
 - **Validation**. E.g. `=LLM("Is this a valid email address: " & A1)`
@@ -21,9 +21,9 @@ This can be used for:
 
 ## Get your API key
 
-If you're a Gramener, LearningMate or Straive employee, copy your JWT token from <https://gramener.com/llmproxy/>.
+If you're a Gramener, LearningMate or Straive employee, copy your JWT token from <https://llmfoundry.straive.com/>.
 
-[![LLM Proxy](docs/llmproxy.png)](https://gramener.com/llmproxy/)
+[![LLM Proxy](docs/llmproxy.png)](https://llmfoundry.straive.com/)
 
 If not, sign up at <https://platform.openai.com/account/api-keys>. Click on "Create new key" and copy the API key.
 
@@ -39,7 +39,7 @@ Click on the "New" button to add a new environment variable for your account.
 
 Set the **Variable name** to:
 
-- `LLMPROXY_JWT` if you got your key from <https://gramener.com/llmproxy/>
+- `LLMFOUNDRY_TOKEN` if you got your key from <https://llmfoundry.straive.com/>
 - `OPENAI_API_KEY` if you got your key from <https://platform.openai.com/account/api-keys>
 
 Paste the **Variable value** as your [API key](#get-your-api-key).
@@ -77,13 +77,7 @@ In any cell, type `=LLM("Translate OK to French")` and press Enter. It will retu
 ## Parameters
 
 - **Prompt**: The question or text to generate a response for
-- **Model** (default: `gpt-3.5-turbo`). For GPT-4, use `=LLM(A1, "gpt-4-turbo-preview")`. You can use any [models](https://platform.openai.com/docs/models/) newer than `gpt-3.5-turbo-1106`
-  - `gpt-4-turbo-preview`
-  - `gpt-4-0125-preview`
-  - `gpt-4-1106-preview`
-  - `gpt-3.5-turbo`
-  - `gpt-3.5-turbo-0125`
-  - `gpt-3.5-turbo-1106`
+- **Model** (default: `gpt-4o-mini`). You can use any [models](https://platform.openai.com/docs/models/) newer than `gpt-3.5-turbo-1106`, e.g. `gpt-4o`
 - **Refresh** (default: `FALSE`): By default, responses are cached. Use `=LLM(A1,,TRUE)` for a new response.
 - **Temperature** (default: `1`): For precise responses, reduce temperature, e.g. `=LLM(A1,,,0.2)`. Can be between 0 and 2.
 
@@ -92,7 +86,7 @@ In any cell, type `=LLM("Translate OK to French")` and press Enter. It will retu
 If `A1` contains "Translate OK to French":
 
 - `=LLM(A1)` - translate "OK" to French
-- `=LLM(A1, "gpt-4")` - use GPT-4 instead of GPT-3.5
+- `=LLM(A1, "gpt-4o")` - use GPT-4o instead of GPT-4o-mini
 - `=LLM(A1,,TRUE)` - get a new response
 - `=LLM(A1,,TRUE,2)` - get a new response with more variation
 
@@ -103,7 +97,7 @@ If `A1` contains "Translate OK to French":
 When the `LLM()` function is called, it:
 
 1. Creates an OpenAI API request using the prompt, telling OpenAI to "Return only 1 JSON array".
-2. Passes it to Gramener's [LLM Proxy](https://gramener.com/llmproxy/), which passes it to OpenAI (unless cached).
+2. Passes it to [LLM Foundry](https://llmfoundry.straive.com/), which passes it to OpenAI (unless cached).
 3. Parse the response as JSON. If there are multiple values, return an array of values.
 4. If there's an error anywhere, return the error message instead
 

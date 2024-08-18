@@ -1,6 +1,10 @@
 '''
+' LLM Excel - Talk to LLMs (like ChatGPT) in Excel
+
+' @author s.anand@gramener.com
+' @license MIT (http://www.opensource.org/licenses/mit-license.php)
 '''
-Function LLM(prompt As String, Optional ByVal model As String = "gpt-3.5-turbo-1106", Optional ByVal refresh As Boolean = False, Optional ByVal temperature As Single = 1) As Variant
+Function LLM(prompt As String, Optional ByVal model As String = "gpt-4o-mini", Optional ByVal refresh As Boolean = False, Optional ByVal temperature As Single = 1) As Variant
     ' Don't re-calculate unless the prompt changes
     Application.Volatile False
 
@@ -13,14 +17,14 @@ Function LLM(prompt As String, Optional ByVal model As String = "gpt-3.5-turbo-1
     End If
     jsonRequest = jsonRequest + "}"
 
-    ' Get the API Key from LLMPROXY_JWT or OPENAI_API_KEY environment variable
+    ' Get the API Key from LLMFOUNDRY_TOKEN or OPENAI_API_KEY environment variable
     Dim apiKey As String
-    If Environ("LLMPROXY_JWT") <> "" Then
-        apiKey = Environ("LLMPROXY_JWT") & ":llm-excel-v1"
+    If Environ("LLMFOUNDRY_TOKEN") <> "" Then
+        apiKey = Environ("LLMFOUNDRY_TOKEN") & ":llm-excel-v2"
     ElseIf Environ("OPENAI_API_KEY") <> "" Then
         apiKey = Environ("OPENAI_API_KEY")
     Else
-        LLM = "#ERROR Missing environment variable LLMPROXY_JWT or OPENAI_API_KEY"
+        LLM = "#ERROR Missing environment variable LLMFOUNDRY_TOKEN or OPENAI_API_KEY"
         Exit Function
     End If
 

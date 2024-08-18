@@ -21,9 +21,7 @@ This can be used for:
 
 ## Get your API key
 
-If you're a Gramener, LearningMate or Straive employee, copy your JWT token from <https://llmfoundry.straive.com/>.
-
-[![LLM Proxy](docs/llmproxy.png)](https://llmfoundry.straive.com/)
+If you're a Gramener, LearningMate or Straive employee, copy your LLM Foundry Token from <https://llmfoundry.straive.com/code>.
 
 If not, sign up at <https://platform.openai.com/account/api-keys>. Click on "Create new key" and copy the API key.
 
@@ -39,7 +37,7 @@ Click on the "New" button to add a new environment variable for your account.
 
 Set the **Variable name** to:
 
-- `LLMFOUNDRY_TOKEN` if you got your key from <https://llmfoundry.straive.com/>
+- `LLMFOUNDRY_TOKEN` if you got your key from <https://llmfoundry.straive.com/code>
 - `OPENAI_API_KEY` if you got your key from <https://platform.openai.com/account/api-keys>
 
 Paste the **Variable value** as your [API key](#get-your-api-key).

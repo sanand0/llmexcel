@@ -21,9 +21,7 @@ This can be used for:
 
 ## Get your API key
 
-If you're a Gramener, LearningMate or Straive employee, copy your LLM Foundry Token from <https://llmfoundry.straive.com/code>.
-
-If not, sign up at <https://platform.openai.com/account/api-keys>. Click on "Create new key" and copy the API key.
+Sign up at <https://platform.openai.com/account/api-keys>. Click on "Create new key" and copy the API key.
 
 [![OpenAI API Key](docs/openai-api-key.png)](https://platform.openai.com/account/api-keys)
 
@@ -35,10 +33,7 @@ Click on the "New" button to add a new environment variable for your account.
 
 ![Environment Variables](docs/env-3-environment-variables.png)
 
-Set the **Variable name** to:
-
-- `LLMFOUNDRY_TOKEN` if you got your key from <https://llmfoundry.straive.com/code>
-- `OPENAI_API_KEY` if you got your key from <https://platform.openai.com/account/api-keys>
+Set the **Variable name** to `OPENAI_API_KEY` from <https://platform.openai.com/account/api-keys>.
 
 Paste the **Variable value** as your [API key](#get-your-api-key).
 
@@ -90,12 +85,12 @@ If `A1` contains "Translate OK to French":
 
 ## How it works
 
-[See the source](https://code.gramener.com/cto/llmexcel/-/blob/main/llmexcel.bas ":ignore").
+[See the source](https://github.com/sanand0/llmexcel/-/blob/main/llmexcel.bas ":ignore").
 
 When the `LLM()` function is called, it:
 
 1. Creates an OpenAI API request using the prompt, telling OpenAI to "Return only 1 JSON array".
-2. Passes it to [LLM Foundry](https://llmfoundry.straive.com/), which passes it to OpenAI (unless cached).
+2. Passes it to OpenAI.
 3. Parse the response as JSON. If there are multiple values, return an array of values.
 4. If there's an error anywhere, return the error message instead
 
@@ -104,4 +99,4 @@ When the `LLM()` function is called, it:
 - If you get a "Macros have been disabled" security message, click "Enable Content".
 - Tools - References - Enable "Microsoft Scripting Runtime"
 
-**Raise your issue** at <https://code.gramener.com/cto/llmexcel/-/issues>.
+**Raise your issue** at <https://github.com/sanand0/llmexcel/-/issues>.

@@ -1,7 +1,7 @@
 '''
 ' LLM Excel - Talk to LLMs (like ChatGPT) in Excel
 
-' @author s.anand@gramener.com
+' @author root.node@gmail.com
 ' @license MIT (http://www.opensource.org/licenses/mit-license.php)
 '''
 Function LLM(prompt As String, Optional ByVal model As String = "gpt-4o-mini", Optional ByVal refresh As Boolean = False, Optional ByVal temperature As Single = 1) As Variant
@@ -17,14 +17,12 @@ Function LLM(prompt As String, Optional ByVal model As String = "gpt-4o-mini", O
     End If
     jsonRequest = jsonRequest + "}"
 
-    ' Get the API Key from LLMFOUNDRY_TOKEN or OPENAI_API_KEY environment variable
+    ' Get the API Key from OPENAI_API_KEY environment variable
     Dim apiKey As String
-    If Environ("LLMFOUNDRY_TOKEN") <> "" Then
-        apiKey = Environ("LLMFOUNDRY_TOKEN") & ":llm-excel-v2"
-    ElseIf Environ("OPENAI_API_KEY") <> "" Then
+    If Environ("OPENAI_API_KEY") <> "" Then
         apiKey = Environ("OPENAI_API_KEY")
     Else
-        LLM = "#ERROR Missing environment variable LLMFOUNDRY_TOKEN or OPENAI_API_KEY"
+        LLM = "#ERROR Missing environment variable OPENAI_API_KEY"
         Exit Function
     End If
 
@@ -33,7 +31,7 @@ Function LLM(prompt As String, Optional ByVal model As String = "gpt-4o-mini", O
     Set http = CreateObject("Msxml2.XMLHTTP.6.0")
     ' Do not set timeouts. XMLHTTP doesn't support it. ServerXMLHTTP doesn't work
     ' http.setTimeouts 5000, 5000, 5000, 30000
-    http.Open "POST", "https://gramener.com/llmproxy/v1/chat/completions", False
+    http.Open "POST", "https://api.openai.com/v1/chat/completions", False
     http.setRequestHeader "Content-Type", "application/json"
     http.setRequestHeader "Authorization", "Bearer " & apiKey
     If Not refresh Then
